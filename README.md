@@ -63,7 +63,7 @@ The following high-level customizations have been made
 
 3.  Clone this repo
     ```bash
-    git clone https://github.com/edesz/dvc-starter.git
+    git clone https://github.com/edesz/dvc-minimal.git
     ```
 
 4.  Initialize `git` repo and add files
@@ -125,8 +125,8 @@ The following high-level customizations have been made
     ```
 
 3.  Clean up
-    -   python artifacts in `dvc-starter/src`
-    -   testing artifacts, summary reports and coverage reports in `dvc-starter/src/tests`
+    -   python artifacts in `dvc-minimal/src`
+    -   testing artifacts, summary reports and coverage reports in `dvc-minimal/src/tests`
 
     by running
     ```bash
