@@ -1,0 +1,30 @@
+name: dvc-demo
+on: [push]
+jobs:
+  env:
+    repo_token: ${{ secrets.GITHUB_TOKEN }}
+  run:
+    runs_on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies        
+        run: pip install dvc tox
+      - name: Get data
+        run: python3 src/get_data.py
+      - name: Initialize DVC
+        run: dvc init
+      - name: Run DVC pipeline
+        run: tox -e dvc-run-pipe
+      - name: Run tests
+        run: tox -e test
+      - name: Show test summary
+        run: tox -e testsummary
+        env:
+          SHOW_COV_HTML: False
+      # - name: Retrieve git history
+      #   run: git fetch --prune
+      # - name: Show diff in scoring metric as a Markdown report
+      #   run: dvc metrics diff --show-md main > report.md
+      # - name: Send report
+      #   run: cml-send-comment report.md

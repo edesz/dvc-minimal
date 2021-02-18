@@ -1,0 +1,9 @@
+pandas
+pyyaml
+scikit-learn==0.24.0
+coverage
+pytest
+pytest-emoji
+pytest-html
+pytest-md
+pytest-repeat

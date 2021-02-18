@@ -1,0 +1,47 @@
+stages:
+  prepare:
+    desc: "Prepare raw data for extracting features"
+    cmd: python3 src/prepare.py -d data.csv
+    deps:
+    - data/data.csv
+    - src/prepare.py
+    outs:
+    - data/prepared/train.csv
+    - data/prepared/test.csv
+  featurize:
+    desc: "Extract features"
+    cmd: python3 src/featurization.py -r train.csv -s test.csv
+    deps:
+    - data/prepared/train.csv
+    - data/prepared/test.csv
+    - src/featurization.py
+    outs:
+    - data/features/train.csv
+    - data/features/test.csv
+  train:
+    desc: "ML Pipeline training"
+    cmd: python3 src/train.py -r train.csv
+    deps:
+    - data/features/train.csv
+    - src/train.py
+    params:
+    - train.clf
+    - train.ohe
+    - train.imputer
+    - train.categoricals
+    - train.numericals
+    outs:
+    - model.pkl
+  evaluate:
+    desc: "Evaluation"
+    cmd: python3 src/evaluate.py -s test.csv -c scores.json -p prc.json -m model.pkl
+    deps:
+    - data/features/test.csv
+    - model.pkl
+    - src/evaluate.py
+    metrics:
+    - scores.json:
+        cache: false
+    plots:
+    - prc.json:
+        cache: false
