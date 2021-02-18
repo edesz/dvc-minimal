@@ -130,7 +130,9 @@ This is a minimal version of the CML with DVC and [Github Actions](https://githu
 ## [Future Improvements](#future-improvements)
 A preliminary list of features planned to be implemented is shown below
 
-1.  Add more tests to improve coverage
+1.  Add tests
+    - to improve coverage
+    - that relevant to the dataset
 
 2.  Add instructions for checking out new branch and making a pull request
 
