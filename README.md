@@ -34,13 +34,7 @@
 -   [Future Improvements](#future-improvements)
 
 ## [About](#about)
-This is a minimal version of the CML with DVC and [Github Actions](https://github.com/features/actions) video tutorials
-
--   1 - [MLOps series](https://www.youtube.com/watch?v=9BgIDqAzfuA&list=PL7WG7YrwYcnDBDuCkFbcyjnZQrdskFsBz) ([#3](https://youtu.be/xPncjKH6SPk))
-
--   2 - [Getting Started series](https://www.youtube.com/watch?v=kLKBcPonMYw&list=PL7WG7YrwYcnDb0qdPl9-KEStsL-3oaEjg) ([#4](https://youtu.be/iduHPtBncBk))
-
-The following high-level customizations have been made
+This is a minimal version of the CML with DVC and [Github Actions](https://github.com/features/actions). The following high-level customizations have been made
 
 -   customized directory structure
     -   `data` directory with `raw` and `processed` sub-dirs to store raw and processed datasets respectively
@@ -136,4 +130,8 @@ The following high-level customizations have been made
 ## [Future Improvements](#future-improvements)
 A preliminary list of features planned to be implemented is shown below
 
-1.  Add more tests to improve coverage.
+1.  Add more tests to improve coverage
+
+2.  Add instructions for checking out new branch and making a pull request
+
+3.  Add plots to `evaluate.py`
