@@ -33,7 +33,6 @@ jobs:
       - name: Show diff in scoring metric as a Markdown report
         run: |
           echo "## Model metrics" > report.md
-          cat scores.json >> report.md
           dvc params diff --show-md main >> report.md
           dvc metrics diff --show-md main >> report.md
       - name: Send report
