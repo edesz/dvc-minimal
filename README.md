@@ -33,7 +33,7 @@
 
 -   [Future Improvements](#future-improvements)
 
-## About
+## [About](#about)
 This is a minimal version of the CML with DVC and [Github Actions](https://github.com/features/actions) video tutorials
 
 -   1 - [MLOps series](https://www.youtube.com/watch?v=9BgIDqAzfuA&list=PL7WG7YrwYcnDBDuCkFbcyjnZQrdskFsBz) ([#3](https://youtu.be/xPncjKH6SPk))
