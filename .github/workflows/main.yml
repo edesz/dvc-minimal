@@ -26,7 +26,7 @@ jobs:
         run: make dvc-run-pipe
       - name: Run tests and show summary
         run: make tests
-      - env:
+        env:
           SHOW_COV_HTML: False
       # - name: Retrieve git history
       #   run: git fetch --prune
