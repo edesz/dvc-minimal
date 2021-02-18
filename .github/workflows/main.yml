@@ -5,6 +5,7 @@ on: [push]
 jobs:
   cirun:
     runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -37,5 +38,7 @@ jobs:
           dvc metrics diff --show-md main >> report.md
       - name: Send report
         run: cml-send-comment report.md
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Clean test artifacts
         run: make clean-tests
