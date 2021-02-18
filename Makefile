@@ -75,10 +75,10 @@ clean-py:
 ## Remove test artifacts
 clean-test-coverage:
 	@echo "+ $@"
-	@find "api/tests/test-logs/htmlcov" -type f -delete
-	@rm -rf api/tests/test-logs/htmlcov
-	@find "api/tests/test-logs/" -type f -name "*report*" -delete
-	@rm -rf api/tests/test-logs/coverage.xml api/.coverage
+	@find "src/tests/test-logs/htmlcov" -type f -delete
+	@rm -rf src/tests/test-logs/htmlcov
+	@find "src/tests/test-logs/" -type f -name "*report*" -delete
+	@rm -rf src/tests/test-logs/coverage.xml api/.coverage
 .PHONY: clean-test-coverage
 
 ## Clean tests
