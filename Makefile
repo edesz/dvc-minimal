@@ -9,7 +9,7 @@
 ## Get raw data
 get-data:
 	@echo "+ $@"
-	@python3 src/get_data.py
+	@tox -e data
 .PHONY: get-data
 
 ## List DVC pipeline steps
