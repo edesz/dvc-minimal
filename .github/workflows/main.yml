@@ -1,6 +1,12 @@
 name: CI
 
-on: [push]
+on: 
+  push:
+    branches:    
+      - main 
+  pull_request:
+    branches:
+      - main
 
 jobs:
   cirun:
@@ -31,9 +37,9 @@ jobs:
           SHOW_COV_HTML: False
       - name: Retrieve git history
         run: git fetch --prune
-      - name: Show diff in scoring metric as a Markdown report
+      - name: Show diff in pipeline step params and in scoring metrics as a Markdown report
         run: |
-          echo "## Model metrics" > report.md
+          echo "## Model parameters and scoring metrics" > report.md
           dvc params diff --show-md main >> report.md
           dvc metrics diff --show-md main >> report.md
       - name: Send report
