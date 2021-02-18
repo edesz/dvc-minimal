@@ -28,9 +28,15 @@ jobs:
         run: make tests
         env:
           SHOW_COV_HTML: False
-      # - name: Retrieve git history
-      #   run: git fetch --prune
-      # - name: Show diff in scoring metric as a Markdown report
-      #   run: dvc metrics diff --show-md main > report.md
-      # - name: Send report
-      #   run: cml-send-comment report.md
+      - name: Retrieve git history
+        run: git fetch --prune
+      - name: Show diff in scoring metric as a Markdown report
+        run: |
+          echo "## Model metrics" > report.md
+          cat scores.json >> report.md
+          dvc params diff --show-md main >> report.md
+          dvc metrics diff --show-md main >> report.md
+      - name: Send report
+        run: cml-send-comment report.md
+      - name: Clean test artifacts
+        run: make clean-tests
