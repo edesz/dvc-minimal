@@ -19,16 +19,14 @@ jobs:
       - name: Install dependencies        
         run: pip install dvc tox
       - name: Get data
-        run: python3 src/get_data.py
+        run: make data
       - name: Initialize DVC
         run: dvc init
       - name: Run DVC pipeline
-        run: tox -e dvc-run-pipe
-      - name: Run tests
-        run: tox -e test
-      - name: Show test summary
-        run: tox -e testsummary
-        env:
+        run: make dvc-run-pipe
+      - name: Run tests and show summary
+        run: make tests
+      - env:
           SHOW_COV_HTML: False
       # - name: Retrieve git history
       #   run: git fetch --prune
