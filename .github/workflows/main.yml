@@ -3,9 +3,11 @@ name: CI
 on: [push]
 
 jobs:
-  run:
-    runs-on: [ubuntu-latest]
-    # container: docker://dvcorg/cml-py3:latest
+  cirun:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
