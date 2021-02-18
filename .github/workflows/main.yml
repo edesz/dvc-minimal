@@ -1,5 +1,7 @@
-name: dvc-demo
+name: CI
+
 on: [push]
+
 jobs:
   env:
     repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -8,6 +10,12 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+      - name: Upgrade python-pip
+        run: python -m pip install --upgrade pip
       - name: Install dependencies        
         run: pip install dvc tox
       - name: Get data
