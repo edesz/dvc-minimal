@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies        
         run: pip install dvc tox
       - name: Get data
-        run: make data
+        run: make get-data
       - name: Initialize DVC
         run: dvc init
       - name: Run DVC pipeline
